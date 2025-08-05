@@ -6,10 +6,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ToDo.Core.Interfaces;
+using Infrastructure.Persistence.Context;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 
 var connectionString = Environment.GetEnvironmentVariable("ToDoDbConnectionString");
+
+builder.Services.AddDbContextFactory<ToDoDBContext>(opt => opt.UseSqlServer(connectionString));
 
 builder.ConfigureFunctionsWebApplication();
 
@@ -17,8 +20,5 @@ builder.ConfigureFunctionsWebApplication();
 // builder.Services
 //     .AddApplicationInsightsTelemetryWorkerService()
 //     .ConfigureFunctionsApplicationInsights();
-
-
-builder.ConfigureFunctionsWebApplication();
 
 builder.Build().Run();

@@ -14,6 +14,6 @@ namespace Application.Services.Interfaces
 
         public bool Update(Guid id, UpdateToDoTitemDTO todo);
 
-        public bool Delete(ToDoItem todo);
+        public bool Delete(Guid id);
     }
 }

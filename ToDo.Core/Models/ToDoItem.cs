@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace ToDo.Core.Models
 {
     public class ToDoItem
     {
+        [Key]
         public Guid id { get; set; }
 
         public string title { get; set; } = String.Empty;
