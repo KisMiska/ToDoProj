@@ -12,9 +12,9 @@ namespace Application.Services.Interfaces
 
         public GetToDoItemDTO Add(CreateToDoItemDTO todo);
 
-        public bool Update(Guid id, UpdateToDoTitemDTO todo);
+        public UpdateResponseDTO Update(Guid id, UpdateToDoTitemDTO todo);
 
-        public bool Delete(Guid id);
+        public DeleteResponseDTO Delete(Guid id);
 
         public Task<GetToDoItemDTO?> GetToDoByIdAsync(Guid id);
 
@@ -22,8 +22,8 @@ namespace Application.Services.Interfaces
 
         public Task<GetToDoItemDTO> AddAsync(CreateToDoItemDTO todo);
 
-        public Task<bool> UpdateAsync(Guid id, UpdateToDoTitemDTO todo);
+        public Task<UpdateResponseDTO> UpdateAsync(Guid id, UpdateToDoTitemDTO todo);
 
-        public Task<bool> DeleteAsync(Guid id);
+        public Task<DeleteResponseDTO> DeleteAsync(Guid id);
     }
 }

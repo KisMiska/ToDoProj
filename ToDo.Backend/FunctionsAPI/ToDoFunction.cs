@@ -95,7 +95,7 @@ public class ToDoFunction
     }
 
     [Function("GetAllToDoItemsAsync")]
-    public async Task<IActionResult> GetAllToDoItemsAsync([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "todos/v2")] HttpRequest req)
+    public async Task<IActionResult> GetAllToDoItemsAsync([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v2/todos")] HttpRequest req)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request to getalltotoditemsAsync.");
         var items = await _toDoService.GetAllToDosAsync();
@@ -103,7 +103,7 @@ public class ToDoFunction
     }
 
     [Function("GetByIdAsync")]
-    public async Task<IActionResult> GetByIdAsync([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "todos/{id}")] HttpRequest req, Guid id)
+    public async Task<IActionResult> GetByIdAsync([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v2/todos/{id}")] HttpRequest req, Guid id)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request to getbyidAsyc.");
         var item = await _toDoService.GetToDoByIdAsync(id);
@@ -111,7 +111,7 @@ public class ToDoFunction
     }
 
     [Function("DeleteAsync")]
-    public async Task<IActionResult> DeleteAsync([HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "todos/{id}")] HttpRequest req, Guid id)
+    public async Task<IActionResult> DeleteAsync([HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "v2/todos/{id}")] HttpRequest req, Guid id)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request to delteAsync.");
         var items = await _toDoService.DeleteAsync(id);
@@ -119,7 +119,7 @@ public class ToDoFunction
     }
 
     [Function("AddAsync")]
-    public async Task<IActionResult> AddAsync([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "todos")] HttpRequest req)
+    public async Task<IActionResult> AddAsync([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "v2/todos")] HttpRequest req)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request to AddAsync.");
         try
@@ -144,7 +144,7 @@ public class ToDoFunction
     }
 
     [Function("UpdateAsync")]
-    public async Task<IActionResult> UpdateAsync([HttpTrigger(AuthorizationLevel.Anonymous, "patch", Route = "todos/{id}")] HttpRequest req, Guid id)
+    public async Task<IActionResult> UpdateAsync([HttpTrigger(AuthorizationLevel.Anonymous, "patch", Route = "v2/todos/{id}")] HttpRequest req, Guid id)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request to getalltotoditems.");
         try

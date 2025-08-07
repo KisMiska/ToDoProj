@@ -11,7 +11,9 @@ namespace ToDo.Application.Mappings
     {
         public MappingProfile()
         {
-            CreateMap<ToDoItem, GetToDoItemDTO>().ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.title));
+            CreateMap<ToDoItem, GetToDoItemDTO>().ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.title))
+                .ForMember(dest => dest.Guid, opt => opt.MapFrom(src => src.id))
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.description));
             CreateMap<CreateToDoItemDTO, ToDoItem>()
                 .ForMember(dest => dest.id, opt => opt.MapFrom(src => Guid.NewGuid()))
                 .ForMember(dest => dest.status, opt => opt.MapFrom(src => Status.ToDo));
