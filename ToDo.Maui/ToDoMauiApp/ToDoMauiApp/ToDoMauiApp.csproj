@@ -66,8 +66,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="ViewModel\" />
-	  <Folder Include="View\" />
+	  <MauiXaml Update="View\AddTodoPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

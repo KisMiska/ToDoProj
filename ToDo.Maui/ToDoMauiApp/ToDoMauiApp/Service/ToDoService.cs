@@ -36,15 +36,7 @@ namespace ToDoMauiApp.Service
         public async Task<DeleteResponseDTO> DeleteAsync(Guid id)
         {
             var res = await _httpClient.DeleteAsync($"{BASE_URL}/api/todos/{id}");
-            DeleteResponseDTO? result = new(false);
-            if (res.IsSuccessStatusCode)
-            {
-                result = await res.Content.ReadFromJsonAsync<DeleteResponseDTO>();
-                if (result == null)
-                {
-                    return new(false);
-                }
-            }
+            DeleteResponseDTO? result = new(res.IsSuccessStatusCode);
             return result;
         }
 
@@ -93,6 +85,5 @@ namespace ToDoMauiApp.Service
             }
             return result;
         }
-    }
     }
 }

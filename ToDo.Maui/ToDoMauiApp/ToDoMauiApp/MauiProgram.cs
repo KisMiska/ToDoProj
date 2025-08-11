@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using ToDoMauiApp.Service;
 using ToDoMauiApp.Service.Interfaces;
+using ToDoMauiApp.View;
+using ToDoMauiApp.ViewModel;
 
 namespace ToDoMauiApp;
 
@@ -20,6 +22,9 @@ public static class MauiProgram
 
 		builder.Services.AddHttpClient<IToDoService, ToDoService>();
 		builder.Services.AddTransient<MainPage>();
+		builder.Services.AddTransient<MainViewModel>();
+		builder.Services.AddTransient<AddToDoViewModel>();
+		builder.Services.AddTransient<AddTodoPage>();
 
 #if DEBUG
 		builder.Logging.AddDebug();
